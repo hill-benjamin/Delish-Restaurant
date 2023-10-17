@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Favicon.png">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="canonical" href="/index.html">
+    <title>Delish Restaurant - Menu</title>
+</head>
+<body>
+    <section id="breakfast">
+        <img class="menu" src="./src/img/menu-img/breakfast-menu.jpg" alt="breakfast image">
+    </section>
+
+    <section id="beverage">
+        <img class="menu" src="./src/img/menu-img/beverages-menu.jpg" alt="beverages image">
+    </section>
+
+    <section id="appetizers">
+        <img class="menu" src="./src/img/menu-img/appetizers-menu.jpg" alt="appetizers image">
+    </section>
+
+    <section id="soups">
+        <img class="menu" src="./src/img/menu-img/soups-menu.jpg" alt="appetizers image">
+    </section>
+
+    <section id="salads">
+        <img class="menu" src="./src/img/menu-img/salads-menu.jpg" alt="appetizers image">
+    </section>
+
+    <section id="starters">
+        <img class="menu" src="./src/img/menu-img/starters-menu.jpg" alt="appetizers image">
+    </section>
+
+    <section id="main-courses">
+        <img class="menu" src="./src/img/menu-img/main-courses-menu.jpg" alt="appetizers image">
+    </section>
+
+    <section id="side-dishes">
+        <img class="menu" src="./src/img/menu-img/side-dishes-menu.jpg" alt="appetizers image">
+    </section>
+
+    <section id="desserts">
+        <img class="menu last" src="./src/img/menu-img/desserts-menu.jpg" alt="appetizers image">
+    </section>
+
+    <div class="background"></div>
+
+    <style>
+
+    ::-webkit-scrollbar{
+        width: 6px;
+    }
+
+    ::-webkit-scrollbar-track{
+        background: rgb(32,32,32,0);
+    }
+
+    ::-webkit-scrollbar-thumb{
+        background-color:rgb(226, 207, 99);
+    }
+
+    body{
+        background-color: #050505;
+        position: relative;
+    }
+
+        .background{
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1200px;
+            z-index: -1;
+            background:url(./src/img/menu-img/food-background-1.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: -230px -200px;
+            animation: move 15s linear infinite;
+            position: fixed;
+            filter: brightness(.1) blur(1px) contrast(.9);
+            
+        }
+
+        @keyframes move {
+            0%{transform: translateY(0%);}
+            50%{transform: translateY(-7%);}
+        }
+
+        section{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+            background-color: transparent;
+        }
+
+        .menu{
+            width: 98%;
+            max-width: 700px;
+            margin-top: 50px;
+            padding: 9px;
+            border: 1px solid rgb(160, 145, 63); 
+            /* border-left: 1px solid rgb(226, 207, 99); */
+        }
+
+        .last{
+            margin-bottom: 50px;
+        }
+    </style>
+</body>
+</html>

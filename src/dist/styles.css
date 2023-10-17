@@ -1,0 +1,1321 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100;9..40,200;9..40,300;9..40,400;9..40,500;9..40,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Roboto:wght@300;400;500&display=swap");
+.gold {
+  color: rgb(226, 207, 99);
+}
+
+html, * {
+  scroll-behavior: smooth !important;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  width: 100%;
+  background-color: black;
+  color: white;
+  padding-right: 6px;
+  animation: addScrollbar 0s linear 2.3s forwards;
+}
+
+@keyframes addScrollbar {
+  from {
+    overflow-y: hidden;
+  }
+  to {
+    overflow-y: scroll;
+    padding-right: 0;
+  }
+}
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(32, 32, 32, 0);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(226, 207, 99);
+}
+
+.container {
+  width: 100%;
+  padding: 0;
+  position: relative;
+}
+.container #modal-reservation {
+  width: 100vw;
+  height: 100vh;
+  min-height: 700px;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 10000;
+  position: fixed;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.container #modal-reservation #modal-btn-close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 40px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  z-index: 10;
+}
+.container #modal-reservation #modal-reservation-content {
+  width: 90%;
+  max-width: 600px;
+  height: 680px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(20, 20, 20);
+  border: 1px solid rgb(160, 145, 63);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 25px 0;
+}
+.container #modal-reservation #modal-reservation-content h3 {
+  width: 100%;
+  text-align: center;
+}
+.container #modal-reservation #modal-reservation-content input {
+  width: 80%;
+  height: 50px;
+  color: white;
+  font-size: 18px;
+  background-color: rgb(39, 39, 39);
+  border: 1px solid rgb(75, 75, 75);
+  padding-left: 20px;
+  transition: border 0.3s;
+}
+.container #modal-reservation #modal-reservation-content input::placeholder {
+  font-family: "playfair display";
+  color: rgb(228, 228, 228);
+}
+.container #modal-reservation #modal-reservation-content input:focus {
+  outline: none;
+  border: 1px solid rgb(160, 145, 63);
+}
+.container #modal-reservation #modal-reservation-content .input-wrapper {
+  width: 80%;
+  background-color: rgb(39, 39, 39);
+  padding: 10px;
+  position: relative;
+  height: 50px;
+}
+.container #modal-reservation #modal-reservation-content .input-wrapper .before-icon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.container #modal-reservation #modal-reservation-content .input-wrapper .after-icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.container #modal-reservation #modal-reservation-content .input-wrapper input, .container #modal-reservation #modal-reservation-content .input-wrapper select {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid rgb(75, 75, 75);
+  appearance: none;
+  -webkit-appearance: none;
+  padding-left: 50px;
+  color: white;
+  font-size: 20px;
+  transition: border 0.3s;
+  outline: none;
+  z-index: 1000000;
+}
+.container #modal-reservation #modal-reservation-content .input-wrapper input option, .container #modal-reservation #modal-reservation-content .input-wrapper select option {
+  border: 1px solid rgb(160, 145, 63);
+  background-color: rgb(36, 36, 36);
+}
+.container #modal-reservation #modal-reservation-content .input-wrapper input:focus, .container #modal-reservation #modal-reservation-content .input-wrapper select:focus {
+  outline: none;
+  border: 1px solid rgb(160, 145, 63);
+}
+.container #modal-reservation #modal-reservation-content .input-wrapper input[type=date]::-webkit-calendar-picker-indicator {
+  background: none;
+  margin-right: 15px;
+  border: none;
+}
+.container #modal-reservation #modal-reservation-content textarea {
+  height: 150px;
+  width: 80%;
+  font-size: 18px;
+  padding: 18px;
+  background-color: rgb(39, 39, 39);
+  border: 1px solid rgb(75, 75, 75);
+  color: white;
+  outline: none;
+  transition: border 0.3s;
+  resize: none;
+  font-family: "playfair display";
+}
+.container #modal-reservation #modal-reservation-content textarea::placeholder {
+  color: white;
+}
+.container #modal-reservation #modal-reservation-content textarea:focus {
+  outline: none;
+  border: 1px solid rgb(160, 145, 63);
+}
+.container #modal-reservation .btn {
+  outline: none;
+  border: none;
+  width: 80%;
+  font-weight: light;
+  position: relative;
+  font-size: 32px;
+  letter-spacing: 3px;
+  padding: 20px 10px;
+  border: 1px solid rgb(160, 145, 63);
+  background-color: transparent;
+  color: white;
+  overflow: hidden;
+  transition: color 0.5s;
+}
+.container #modal-reservation .btn::before {
+  content: "";
+  position: absolute;
+  background-color: rgb(160, 145, 63);
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  transition: height 0.4s ease-in;
+  border-radius: 0 0 50% 50%;
+}
+.container #modal-reservation .btn:hover {
+  color: black;
+}
+.container #modal-reservation .btn:hover::before {
+  height: 190%;
+}
+.container #home-section {
+  overflow: hidden;
+  width: 100%;
+  height: 770px;
+  position: relative;
+}
+.container #home-section .hero-image1, .container #home-section .hero-image2 {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../img/hero-img/home.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: brightness(0.3);
+  opacity: 1;
+  transition: opacity 3.5s;
+}
+.container #home-section .zoom {
+  animation: zoom 10s linear 0s infinite;
+}
+.container #home-section .hidden {
+  transform: scale(130%);
+  opacity: 0;
+}
+@keyframes zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(130%);
+  }
+}
+.container #home-section #header {
+  z-index: 1000;
+  position: relative;
+  width: 100%;
+  height: 0;
+}
+.container #home-section #header .header-extradata {
+  border-bottom: 1px solid rgba(226, 207, 99, 0.5);
+  display: flex;
+  align-items: center;
+  background: linear-gradient(rgb(4, 4, 4) 0%, rgb(12, 12, 12) 100%);
+  width: 100%;
+  height: 43px;
+  justify-content: center;
+  z-index: 100;
+}
+.container #home-section #header .header-extradata ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+.container #home-section #header .header-extradata ul .li1 {
+  text-align: center;
+  margin: 0 20px;
+  font-weight: 500;
+  font-family: "roboto", sans-serif;
+}
+.container #home-section #header .header-extradata ul .li2 {
+  font-weight: 500;
+  font-family: "roboto", sans-serif;
+  margin: 0 20px;
+}
+.container #home-section #header .header-menu {
+  background-color: transparent;
+  transform: translateY(0);
+  transition: transform 0.5s, background-color 1s;
+  position: absolute;
+  opacity: 0;
+  padding: 30px 15px 0 15px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  animation: showAndUp 0.8s linear 1.5s forwards;
+  z-index: 1000;
+}
+@keyframes showAndUp {
+  from {
+    margin-top: 100px;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.container #home-section #header .header-menu .logo-container {
+  display: flex;
+  margin-top: -2px;
+}
+.container #home-section #header .header-menu .logo-container img {
+  filter: saturate(0.8) contrast(1.5) sepia(0.1);
+  height: 70px;
+}
+.container #home-section #header .header-menu .logo-container h1 {
+  display: flex;
+  flex-direction: column;
+  font-size: 25px;
+  line-height: 25px;
+}
+.container #home-section #header .header-menu .logo-container h1 span {
+  color: rgb(226, 207, 99);
+  line-height: 17px;
+  font-size: 17px;
+}
+.container #home-section #header .header-menu ul {
+  display: flex;
+  margin: 27px 60px;
+}
+.container #home-section #header .header-menu ul li {
+  font-size: 12px;
+  font-weight: bolder;
+  font-family: "DM Sans", "roboto", "sans-serif";
+  margin: 0 20px;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+.container #home-section #header .header-menu ul li:hover {
+  color: rgb(226, 207, 99);
+}
+.container #home-section #header .header-menu button {
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-family: "Playfair Display", "sans-serif";
+  height: 60px;
+  padding: 0px 16px;
+  text-transform: uppercase;
+  margin-top: -23px;
+  margin-right: -45px;
+  outline: none;
+  border: 1px solid rgb(226, 207, 99);
+  background-color: rgb(226, 207, 99);
+  color: rgb(0, 0, 0);
+  animation: jumpButton 10s linear 4s infinite;
+  transition: color 0.5s, background-color 0.5s;
+}
+.container #home-section #header .header-menu button:hover {
+  color: rgb(226, 207, 99);
+  background-color: transparent;
+}
+@keyframes jumpButton {
+  0% {
+    transform: translateY(0px);
+  }
+  3%, 4% {
+    transform: translateY(-9px);
+  }
+  5% {
+    transform: translateY(-8px);
+  }
+  6% {
+    transform: translateY(0px);
+  }
+  7% {
+    transform: translateY(-3px);
+  }
+  8% {
+    transform: translateY(0);
+  }
+}
+.container #home-section #header .header-menu.hidden {
+  transform: translateY(-100%);
+}
+.container #home-section #header .header-marker {
+  width: 10px;
+  height: 40px;
+  position: fixed;
+  top: -1px;
+  left: 50px;
+  background-color: transparent;
+  border-left: 15px solid rgb(226, 207, 99);
+  border-right: 15px solid rgb(226, 207, 99);
+  border-bottom: 15px solid transparent;
+  opacity: 1;
+  z-index: -1;
+  transform: translateY(0);
+  transition: transform 1s;
+  box-sizing: border-box;
+}
+.container #home-section #header .header-marker.hidden {
+  transform: translateY(-100%);
+}
+.container #home-section .svg-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 230px auto;
+  text-align: center;
+  width: 100%;
+  animation: moveUp 0.5s linear 5.5s forwards;
+}
+.container #home-section .svg-container path {
+  fill: none;
+  stroke-width: 1px;
+}
+.container #home-section .svg-container .delish {
+  width: 425.2000366211px;
+  height: 180.6px;
+  top: 100px;
+  position: absolute;
+}
+.container #home-section .svg-container .delish path {
+  stroke-dasharray: 420px;
+  stroke-dashoffset: 420px;
+  stroke: white;
+  animation: drawPath 1.4s linear forwards, changeToWhite 0.5s linear 1.4s forwards;
+}
+.container #home-section .svg-container .title-line {
+  width: 455pt;
+  height: 553pt;
+  position: absolute;
+}
+.container #home-section .svg-container .title-line path {
+  stroke-dasharray: 70000px;
+  stroke-dashoffset: 70000px;
+  stroke-width: 20px;
+  stroke: rgb(160, 145, 63);
+  animation: drawPath 1.4s linear forwards, changeToDarkgold 0.5s linear 1.4s forwards;
+}
+.container #home-section .svg-container .experience {
+  width: 638.8px;
+  height: 222px;
+  animation: hide 0.5s linear 5s forwards;
+}
+.container #home-section .svg-container .experience path {
+  stroke-dasharray: 720px;
+  stroke-dashoffset: 720px;
+  stroke: rgb(160, 145, 63);
+  animation: drawPath 1.4s linear forwards, changeToDarkgold 0.5s linear 1.4s forwards;
+}
+@keyframes hide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes moveUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-80px);
+  }
+}
+.container #home-section .subtitle-container {
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-family: "roboto", "sans-serif";
+  text-align: center;
+  margin-top: -230px;
+  opacity: 0;
+  color: rgb(160, 145, 63);
+  animation: showAndUp 0.8s linear 5.2s forwards;
+}
+.container #home-section .subtitle-container .subtitle {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  user-select: none;
+}
+.container #home-section .subtitle-container .subtitle .div-word-container {
+  background-color: transparent;
+  overflow: hidden;
+  margin-left: 5px;
+  width: auto;
+  transform: translateX(-100%);
+  animation: moveToLeft 10s steps(30) infinite, blink 1s linear infinite;
+  border-right: 2px solid rgb(226, 207, 99);
+}
+.container #home-section .subtitle-container .subtitle .div-word-container .div-word {
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: hidden;
+  width: auto;
+  animation: moveToRight 10s steps(30) infinite;
+}
+.container #home-section .subtitle-container .subtitle .div-word-container .div-word::before {
+  content: "";
+  color: white;
+  width: 500px;
+  animation: changeWords 60s infinite;
+}
+@keyframes moveToRight {
+  0%, 100% {
+    transform: translateX(100%);
+  }
+  20%, 80% {
+    transform: translateX(0);
+  }
+}
+@keyframes moveToLeft {
+  0%, 100% {
+    transform: translateX(-100%);
+  }
+  20%, 80% {
+    transform: translateX(0);
+  }
+}
+@keyframes blink {
+  0%, 69% {
+    border-color: rgb(160, 145, 63);
+  }
+  70%, 100% {
+    border-color: transparent;
+  }
+}
+@keyframes changeWords {
+  0%, 16.666% {
+    content: "flavor meets elegance";
+  }
+  16.667%, 33.333% {
+    content: "you'll find a variety of cuisines";
+  }
+  33.334%, 50% {
+    content: "passion for food comes alive";
+  }
+  50.001%, 66.666% {
+    content: "food and ambiance harmonize";
+  }
+  66.667%, 83.333% {
+    content: "culinary dreams come true";
+  }
+  83.334%, 100% {
+    content: "we hope you come";
+  }
+}
+.container .active {
+  position: relative;
+  color: rgb(226, 207, 99);
+}
+.container .active::before {
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+  border: 7px solid transparent;
+  border-left: 7px solid rgb(226, 207, 99);
+  background-color: transparent;
+  top: 46%;
+  transform: translateY(-50%);
+  left: -15px;
+  width: 2px;
+  height: 2px;
+}
+.container .elements {
+  opacity: 0;
+  animation: showElements 0.8s linear 1.5s forwards;
+}
+@keyframes showElements {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes drawPath {
+  to {
+    stroke-dashoffset: 0px;
+  }
+}
+@keyframes changeToDarkgold {
+  from {
+    fill: transparent;
+  }
+  to {
+    fill: rgb(160, 145, 63);
+  }
+}
+@keyframes changeToWhite {
+  from {
+    fill: transparent;
+  }
+  to {
+    fill: white;
+  }
+}
+.container main {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: inline-block;
+}
+.container main #menu-section {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 1000px;
+  background-color: rgb(9, 9, 9);
+}
+.container main #menu-section h2 {
+  font-family: "roboto", "sans-serif";
+  font-weight: lighter;
+  width: calc(100% - 6px);
+  text-align: center;
+  color: rgb(160, 145, 63);
+  font-size: 15px;
+  letter-spacing: 10px;
+  margin: 70px 0 20px 0px;
+}
+.container main #menu-section .menu-title {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: calc(100% - 10px);
+}
+.container main #menu-section .menu-title #menutype-container {
+  display: inline-block;
+  justify-content: center;
+  overflow: hidden;
+  width: 380px;
+  position: relative;
+}
+.container main #menu-section .menu-title #menutype-container button {
+  font-size: 20px;
+  border: none;
+  background-color: transparent;
+  color: rgb(160, 145, 63);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.container main #menu-section .menu-title #menutype-container button:nth-child(3) {
+  right: 0;
+}
+.container main #menu-section .menu-title #menutype-container #menutype-slider-container {
+  display: flex;
+  align-items: center;
+  width: 200%;
+  height: 8rem;
+  margin-left: 0%;
+  text-align: center;
+  justify-content: center;
+}
+.container main #menu-section .menu-title #menutype-container #menutype-slider-container .menutype {
+  width: 50%;
+  display: inline-block;
+}
+.container main #menu-section .menu-title #menutype-container #menutype-slider-container .menutype .inner-menutype {
+  display: inline-block;
+  font-family: "roboto", "Times New Roman", Times, serif;
+  letter-spacing: 3px;
+  font-weight: lighter;
+  font-size: 60px;
+  line-break: strict;
+  white-space: break-spaces;
+  width: 100%;
+  text-align: center;
+  margin-right: -3%;
+}
+.container main #menu-section .cards-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 30px;
+  width: 100%;
+  position: absolute;
+  opacity: 1;
+  transition: opacity 1s;
+}
+.container main #menu-section .cards-container .menu-card-2 {
+  transform: translateY(160px);
+}
+.container main #menu-section .cards-container .menu-description {
+  font-family: "roboto", "sans-serif";
+  max-width: 452px;
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 40px;
+}
+.container main #menu-section .cards-container .card {
+  position: relative;
+  width: 305px;
+  height: 475px;
+  border: 1px solid rgb(160, 145, 63);
+  overflow: hidden;
+  border-radius: 20px;
+  display: inline-block;
+  margin-top: 20px;
+  background-position: center;
+  background-size: cover;
+}
+.container main #menu-section .cards-container .card .card-content {
+  padding: 22px;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(5px);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: -100%;
+  transition: right 0.8s;
+  font-family: "roboto";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container main #menu-section .cards-container .card .card-content .inner-card-content h3 {
+  font-family: "playfair display";
+  font-weight: bolder;
+  font-size: 21px;
+}
+.container main #menu-section .cards-container .card .card-content .inner-card-content .card-subtitle {
+  margin-top: 8px;
+  color: rgb(71, 179, 71);
+}
+.container main #menu-section .cards-container .card .card-content .inner-card-content .card-info {
+  font-size: 14px;
+  margin-top: 30px;
+  line-height: 29px;
+}
+.container main #menu-section .cards-container .card .card-content .inner-card-content button {
+  margin-top: 30px;
+  background-color: rgb(160, 145, 63);
+  border-radius: 10px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  position: relative;
+}
+.container main #menu-section .cards-container .card .card-content .inner-card-content button a {
+  padding: 15px 25px;
+  border-radius: 10px;
+  display: block;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+}
+.container main #menu-section .cards-container .card:hover .card-content {
+  right: 0;
+}
+.container main #about-us-section {
+  position: relative;
+  width: 100%;
+  height: 999px;
+  background-color: rgb(14, 14, 14);
+  overflow: hidden;
+  border-bottom: 1px solid rgb(160, 145, 63);
+}
+.container main #about-us-section .chef {
+  position: absolute;
+  width: 22%;
+  min-width: 260px;
+  transform: rotateY(180deg);
+  left: 28%;
+  bottom: -2px;
+  z-index: 2;
+}
+.container main #about-us-section .date-img-container {
+  position: absolute;
+  left: 228px;
+  top: 115px;
+  border: 1px solid rgb(160, 145, 63);
+  border-radius: 100%;
+  padding: 3px 3px 0px 3px;
+  z-index: 9;
+  background-color: rgb(14, 14, 14);
+}
+.container main #about-us-section .date-img-container .date-img {
+  width: 100px;
+  z-index: 8;
+}
+.container main #about-us-section .date-decoration {
+  position: absolute;
+  width: 325px;
+  top: 50px;
+  left: 120px;
+  z-index: 1;
+}
+.container main #about-us-section .chef-cooking {
+  position: absolute;
+  height: 90%;
+  width: 40%;
+  bottom: 0;
+  left: 0%;
+  background: url(../img/chef3.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: -420px;
+  border-top-right-radius: 100%;
+  border-right: 1px solid rgb(160, 145, 63);
+  border-top: 1px solid rgb(160, 145, 63);
+}
+.container main #about-us-section #about-us-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  width: 40%;
+  height: 70%;
+  bottom: 17%;
+  right: 8%;
+}
+.container main #about-us-section #about-us-text-container h3 {
+  font-family: "playfair display", "roboto", "sans-serif";
+  font-size: 40px;
+  color: white;
+}
+.container main #about-us-section #about-us-text-container img {
+  width: 200px;
+}
+.container main #about-us-section #about-us-text-container p {
+  font-family: "DM Sans", "roboto", "playfair display", "sans-serif";
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 100;
+  letter-spacing: 2px;
+  color: white;
+  line-height: 35px;
+  width: 85%;
+}
+.container main #jazz-section {
+  overflow: hidden;
+  width: 100%;
+  height: 1200px;
+  background-color: rgb(0, 0, 0);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container main #jazz-section #jazz-section-background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: url(../img/hero-img/jazz.jpg);
+  background-attachment: fixed;
+  background-position: cover;
+  filter: blur(3px) brightness(0.3);
+}
+.container main #jazz-section .jazz-quote-container {
+  z-index: 20;
+  margin-top: 18%;
+  width: 80%;
+  max-width: 900px;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+}
+.container main #jazz-section .jazz-quote-container button {
+  font-size: 20px;
+  border: none;
+  background-color: transparent;
+  color: rgb(160, 145, 63);
+  margin-top: 1px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  z-index: 1000;
+}
+.container main #jazz-section .jazz-quote-container button:nth-child(3) {
+  left: auto;
+  right: 0;
+  z-index: 1000;
+}
+.container main #jazz-section .jazz-quote-container .jazz-slider-container {
+  position: relative;
+  display: flex;
+  width: 200%;
+  height: 100%;
+  margin-left: 0%;
+}
+.container main #jazz-section .jazz-quote-container .jazz-slider-container .jazz-text {
+  z-index: 7;
+  width: 100%;
+  transform: translateX(0%);
+  display: flex;
+  align-items: center;
+}
+.container main #jazz-section .jazz-quote-container .jazz-slider-container .jazz-text .inner-text {
+  text-align: center;
+  font-family: "DM sans", "roboto";
+  font-size: 29px;
+  font-weight: 200;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+.container main #jazz-section .more-jazz-btn {
+  z-index: 5;
+  margin-top: 40px;
+  background-color: transparent;
+  padding: 10px 40px;
+  outline: none;
+  font-weight: 100;
+  font-family: "DM sans";
+  border: 1px solid rgb(226, 207, 99);
+  color: rgb(226, 207, 99);
+  transition: color 0.5s, background-color 0.5s;
+}
+.container main #jazz-section .more-jazz-btn:hover {
+  background-color: rgb(226, 207, 99);
+  color: black;
+}
+.container main #jazz-section .jazz-quote {
+  position: absolute;
+  z-index: 10;
+  bottom: 350px;
+  text-align: center;
+  font-family: "couier new", "playfair display";
+  font-weight: lighter;
+}
+.container main #jazz-section .jazz-quote span {
+  font-family: "playfair display";
+}
+.container main #contact-section {
+  width: 100%;
+  height: 800px;
+  background: url(../img/svg-background.svg);
+  background-size: cover;
+  position: relative;
+}
+.container main #contact-section .contact-container {
+  position: absolute;
+  top: -325px;
+  height: 700px;
+  margin: 0 10%;
+  width: 80%;
+  background-color: rgb(10, 10, 10);
+  display: flex;
+}
+.container main #contact-section .contact-container img {
+  height: 100%;
+  width: 40%;
+  border-left: 1px solid transparent;
+  object-fit: cover;
+  object-position: 35%;
+}
+.container main #contact-section .contact-container .contact-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  width: 60%;
+  height: 100%;
+}
+.container main #contact-section .contact-container .contact-content h3 {
+  width: 100%;
+  height: min-content;
+  font-family: "DM sans";
+  font-size: 40px;
+  font-weight: lighter;
+  margin-top: 5%;
+  text-align: center;
+}
+.container main #contact-section .contact-container .contact-content button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  color: white;
+  border: none;
+  outline: none;
+  height: 90px;
+  width: 280px;
+  min-width: 39%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: light;
+  font-family: "DM Sans", "Playfair Display", "Roboto", "sans-serif";
+  transition: transform 0.3s;
+}
+.container main #contact-section .contact-container .contact-content button i {
+  transform: translateY(1px);
+  margin-right: 5px;
+  transition: color 0.3s;
+}
+.container main #contact-section .contact-container .contact-content button:hover {
+  transform: scale(1.06);
+}
+.container main #contact-section .contact-container .contact-content button:nth-child(2) i {
+  margin-right: 0;
+  transform: translateY(-1px);
+}
+.container main #contact-section .contact-container .contact-content button:nth-child(2):hover i {
+  color: rgb(102, 255, 102);
+}
+.container main #contact-section .contact-container .contact-content button:nth-child(3) i {
+  margin-right: 0;
+}
+.container main #contact-section .contact-container .contact-content button:nth-child(3):hover i {
+  color: rgb(228, 148, 44);
+}
+.container main #contact-section .contact-container .contact-content button:nth-child(4) i {
+  margin-right: 5px;
+}
+.container main #contact-section .contact-container .contact-content button:nth-child(4):hover i {
+  color: rgb(238, 113, 255);
+}
+.container main #contact-section .contact-container .contact-content button:nth-child(5):hover i {
+  color: rgb(129, 198, 255);
+}
+.container main #contact-section .contact-container .contact-content button:nth-child(6):hover i {
+  color: rgb(59, 80, 151);
+}
+.container main #contact-section .contact-container .contact-content button:nth-child(7):hover i {
+  color: rgb(209, 27, 27);
+}
+.container main #contact-section .contact-container .contact-content button:nth-child(8) {
+  min-width: 70%;
+}
+.container main #contact-section .contact-container .contact-content button:nth-child(8):hover i {
+  color: rgb(226, 207, 99);
+}
+.container main #contact-section .contact-container .contact-content button span {
+  color: rgb(194, 194, 194);
+}
+.container footer {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(194, 194, 194);
+  width: 100%;
+  z-index: 200;
+  bottom: 36px;
+}
+.container footer p {
+  text-align: center;
+  font-size: 20px;
+  font-family: "DM Sans";
+  font-weight: lighter;
+  line-height: 30px;
+  line-break: normal;
+}
+.container footer p a {
+  color: rgb(226, 207, 99);
+  text-decoration: underline;
+}
+
+#menu-checkbox, #menu-checkbox-label {
+  display: none;
+}
+
+@media (max-width: 1254px) {
+  .container #home-section #header .header-menu {
+    position: fixed;
+    width: 100%;
+    height: 120px;
+  }
+  .container #home-section #header .header-menu ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgb(29, 29, 29);
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    max-width: 500px;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    transition: transform 0.5s;
+    transform: translateX(-100%);
+  }
+  .container #home-section #header .header-menu ul span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    border-bottom: 1px solid rgb(17, 17, 17);
+  }
+  .container #home-section #header .header-menu ul span:last-child {
+    margin-top: 30px;
+    border: none;
+  }
+  .container #home-section #header .header-menu ul span li {
+    padding: 10px;
+    font-size: 14px;
+    width: max-content;
+  }
+  .container #home-section #header .header-menu button {
+    margin: 0;
+  }
+  .container #home-section #header .header-menu #menu-checkbox {
+    display: none;
+  }
+  .container #home-section #header .header-menu #menu-checkbox:checked + #links-menu-list {
+    transform: translateX(0%);
+  }
+  .container #home-section #header .header-menu #menu-checkbox-label {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: inline-block;
+    color: #eee;
+    transform: translateY(-50%);
+    font-size: 30px;
+    margin: 60px 20px 0 0;
+    cursor: pointer;
+  }
+  .container #menu-section h2 {
+    margin-bottom: 0 !important;
+  }
+  .container #menu-section .cards-container {
+    margin-top: 0 !important;
+  }
+  .container #menu-section .cards-container .menu-card-1, .container #menu-section .cards-container .menu-card-3 {
+    margin-top: 200px !important;
+  }
+  .container #menu-section .cards-container .menu-card-2 {
+    display: none !important;
+  }
+  .container #about-us-section {
+    display: flex !important;
+    justify-content: center;
+  }
+  .container #about-us-section .chef {
+    width: 22%;
+    min-width: 260px;
+    left: 50% !important;
+    transform: rotateX(360deg) !important;
+    bottom: -2px;
+    z-index: 2;
+  }
+  .container #about-us-section .date-img-container {
+    position: absolute;
+    top: auto !important;
+    bottom: 320px;
+    left: 119px !important;
+    border: 1px solid rgb(160, 145, 63);
+    border-radius: 100%;
+    padding: 3px 3px 0px 3px;
+    z-index: 9;
+    background-color: rgb(14, 14, 14);
+  }
+  .container #about-us-section .date-img-container .date-img {
+    width: 100px;
+    z-index: 8;
+  }
+  .container #about-us-section .date-decoration {
+    position: absolute;
+    width: 325px;
+    top: auto !important;
+    bottom: 280px;
+    left: 10px !important;
+    z-index: 1;
+  }
+  .container #about-us-section .chef-cooking {
+    position: relative !important;
+    max-height: 35%;
+    width: 90% !important;
+    align-self: flex-end;
+    max-width: 650px;
+    margin-bottom: 5%;
+    border: 1px solid rgb(160, 145, 63);
+    background-position: 65% !important;
+    border-top-right-radius: 0% !important;
+  }
+  .container #about-us-section #about-us-text-container {
+    width: 100% !important;
+    max-width: 600px;
+    right: 50% !important;
+    transform: translateX(50%);
+    top: -50px;
+  }
+  .container #contact-section .contact-container {
+    margin: 0 15% !important;
+    width: 70% !important;
+    height: 900px !important;
+  }
+  .container #jazz-section .jazz-quote-container {
+    width: 90% !important;
+  }
+  .container footer p {
+    font-size: 15px;
+  }
+}
+@media (max-width: 768px) {
+  .container #home-section .svg-container .experience {
+    width: 548.8px;
+    height: 236px;
+  }
+  .container #home-section .svg-container .delish {
+    width: 365.2000366211px;
+    height: 223.6px;
+  }
+  .container #home-section .svg-container .title-line {
+    width: 350pt;
+    height: 550pt;
+  }
+  .container .subtitle-container {
+    font-size: 18px !important;
+  }
+  .container #menu-section .cards-container .menu-card-1 {
+    display: none !important;
+  }
+  .container #about-us-section .date-img-container {
+    bottom: 255px;
+  }
+  .container #about-us-section .date-decoration {
+    bottom: 220px;
+    left: 10px !important;
+  }
+  .container #about-us-section .chef-cooking {
+    max-height: 30%;
+    width: 80% !important;
+  }
+  .container #contact-section .contact-container .contact-content {
+    width: 100% !important;
+  }
+  .container #contact-section .contact-container img {
+    display: none;
+  }
+}
+@media (max-width: 436px) {
+  .container #home-section #header .header-extradata ul li a {
+    font-size: 13px;
+  }
+  .container #home-section #header .header-menu {
+    height: 80px;
+  }
+  .container #home-section #header .header-menu .logo-container img {
+    height: 50px;
+  }
+  .container #home-section #header .header-menu .logo-container h1 {
+    font-size: 20px;
+    line-height: 20px;
+  }
+  .container #home-section #header .header-menu .logo-container h1 span {
+    line-height: 13px;
+    font-size: 13px;
+  }
+  .container #home-section #header .header-menu #menu-checkbox-label {
+    z-index: 1000;
+    font-size: 25px;
+    margin: 47px 20px 0 0;
+  }
+  .container #home-section .svg-container {
+    margin: 250px 0 130px 0;
+  }
+  .container #home-section .svg-container .experience {
+    width: 548.8px;
+    height: 326px;
+  }
+  .container #home-section .svg-container .delish {
+    width: 265.2000366211px;
+    height: 223.6px;
+  }
+  .container #home-section .svg-container .title-line {
+    width: 225pt;
+    height: 475pt;
+  }
+  .container .subtitle-container {
+    font-size: 12px !important;
+  }
+  .container #menu-section .menu-title #menutype-container #menutype-slider-container .menutype .inner-menutype {
+    font-size: 45px !important;
+  }
+  .container #menu-section .cards-container .menu-card-3 {
+    max-width: 200px;
+    max-height: 400px;
+    transform: translateY(80px);
+  }
+  .container #menu-section .cards-container .menu-card-1 {
+    display: none !important;
+  }
+  .container #menu-section .cards-container .card .card-content .inner-card-content h3 {
+    font-size: 20px !important;
+  }
+  .container #menu-section .cards-container .card .card-content .inner-card-content .card-info {
+    margin-top: 10px !important;
+    font-size: 12px !important;
+    line-height: 15px !important;
+  }
+  .container #menu-section .cards-container .card .card-content .inner-card-content button {
+    font-size: 12px;
+    padding: 6px 15px !important;
+  }
+  .container #about-us-section #about-us-text-container p {
+    line-height: 18px !important;
+  }
+  .container #about-us-section #about-us-text-container h3 {
+    font-size: 20x !important;
+  }
+  .container #about-us-section .date-img-container {
+    left: 10px !important;
+  }
+  .container #about-us-section .date-img-container .date-img {
+    width: 80px !important;
+  }
+  .container #about-us-section .date-decoration {
+    display: none;
+  }
+  .container #about-us-section .chef-cooking {
+    max-height: 30%;
+    width: 80% !important;
+  }
+  .container #about-us-section .chef {
+    min-width: 180px !important;
+  }
+  .container #jazz-section .jazz-quote-container .jazz-slider-container .jazz-text .inner-text {
+    font-size: 23px !important;
+  }
+  .container #jazz-section .jazz-quote {
+    font-size: 13px;
+  }
+  .container #contact-section .contact-container .contact-content .gmail-info span p, .container #contact-section .contact-container .contact-content .whatsapp-info span p, .container #contact-section .contact-container .contact-content .instagram-info span p, .container #contact-section .contact-container .contact-content .twitter-info span p, .container #contact-section .contact-container .contact-content .facebook-info span p, .container #contact-section .contact-container .contact-content .youtube-info span p, .container #contact-section .contact-container .contact-content .location-info span p {
+    font-size: 14px;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
