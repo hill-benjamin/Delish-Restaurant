@@ -4,7 +4,7 @@
 Este proyecto es una página web denominada "Delish Restaurant". 
 Está creada como práctica para un restaurant ficticio, y tiene la intención de transmitir la sensación de un lugar de comida elegante.
 
-Link Directo al sitio web: https://restuarant-delish.netlify.app/
+Link Directo al sitio web: https://delish-restaurant.com/
 
 ## Tecnologías 
 - HTML.
